@@ -1,10 +1,9 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'student',
-  password: 'student',
-  database: 'YOUR_DATABASE_NAME_HERE'
+  user: 'root',
+  database: 'cows'
 });
 
 connection.connect((err) => {
@@ -15,13 +14,14 @@ connection.connect((err) => {
   }
 });
 
-module.exports = connection;
+// connection.query('select * from cowlist', function(err, results) {
+//   console.log('results:::', results);
+// });
 
 
-
-
+module.exports.connection = connection;
 
 // Don't forget to export your functions!
-module.exports = {
+// module.exports = {
 
-};
+// };
