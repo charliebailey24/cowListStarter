@@ -9,6 +9,7 @@ class AddEntry extends React.Component {
       name: '',
       description: ''
     }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.addCow = this.addCow.bind(this);
