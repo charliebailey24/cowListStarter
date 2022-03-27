@@ -8,8 +8,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // alter array removing clicked cow
       cows: [],
-      selected: null
+      selected: null,
+      // isClicked: false
     }
     this.getCows = this.getCows.bind(this);
     this.setSelected = this.setSelected.bind(this);
@@ -22,7 +24,6 @@ class App extends React.Component {
   getCows() {
     axios.get('/api/cows')
     .then((response) => {
-      console.log('response.data:::', response.data);
       this.setState({cows: response.data});
     })
     .catch((err) => {
@@ -30,10 +31,12 @@ class App extends React.Component {
     });
   }
 
-  setSelected(cow, handleClick) {
-    this.setState({selected: cow}, function() {
-      console.log('selected:::', this.state.selected);
+  setSelected(selectedCow) {
+    var selectedRemoved = this.state.cows.filter((currentCow) => {
+      return currentCow.id !== selectedCow.id;
     });
+
+    this.setState({cows: selectedRemoved, selected: selectedCow});
   }
 
   render() {

@@ -14,14 +14,5 @@ connection.connect((err) => {
   }
 });
 
-// connection.query('select * from cowlist', function(err, results) {
-//   console.log('results:::', results);
-// });
-
-
 module.exports.connection = connection;
 
-// Don't forget to export your functions!
-// module.exports = {
-
-// };

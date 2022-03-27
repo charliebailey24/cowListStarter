@@ -17,7 +17,6 @@ class AddEntry extends React.Component {
 
   handleSubmit() {
     event.preventDefault();
-    console.log('new cow:::', this.state);
     this.addCow();
     this.setState({name: '', description: ''});
   }
@@ -32,7 +31,6 @@ class AddEntry extends React.Component {
       description: this.state.description
     })
     .then((response) => {
-      console.log('axios POST response:::', response);
       this.props.getCows();
     })
     .catch((err) => {
